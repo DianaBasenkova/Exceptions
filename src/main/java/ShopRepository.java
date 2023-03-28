@@ -23,9 +23,12 @@ public class ShopRepository {
      *
      * @param product — добавляемый товар
      */
-    public void add(Product product) {
+    public void add(Product product,int id) {
+        if(findById(id) != null) {throw new AlreadyExistsException("Element id" + id + "Already exists");
+    }
         products = addToArray(products, product);
     }
+
 
     public Product[] findAll() {
         return products;
